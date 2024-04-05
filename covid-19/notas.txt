@@ -1,0 +1,1 @@
+Para instalar dependecias solo escribe npm install
