@@ -1,5 +1,6 @@
 //Define la funcion que regresa un componente con un titulo
 //Autor: Diego Sánchez Valle
+import "./titulo.css";
 
 const Titulo = (props) => {
     return(

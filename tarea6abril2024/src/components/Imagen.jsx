@@ -1,4 +1,5 @@
 import blueDog from '../images/blue.png';
+//import "./imagen.css";
 
 const Imagen = (props) => {
     return(
