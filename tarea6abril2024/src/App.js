@@ -10,7 +10,7 @@ import Descripcion from './components/Descripcion';
 function App() {
   return (
     <div className="App">
-      <Imagen/>
+      <Imagen option="1"/>
       <Titulo texto="BLUES CLUES" />  
       <Descripcion texto="¿Cómo te sientes hoy Blue? Prepárate para acompañar a este icónico perrito a resolver divertidos misterios."/>
     </div>
