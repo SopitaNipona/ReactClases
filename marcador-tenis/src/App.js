@@ -36,7 +36,13 @@ function App() {
       <Puntos puntos={puntosA} />
       <Titulo texto="Jugador B"/>
       <Puntos puntos={puntosB} />
+      <Titulo texto="Jugador A"/>
+      <Puntos puntos={puntosA} />
+      <Titulo texto="Jugador B"/>
+      <Puntos puntos={puntosB} />
 
+      <Boton texto="Gana punto A" onClick={onClickHandlerA}/>
+      <Boton texto="Gana punto B" onClick={onClickHandlerB}/>
       <Boton texto="Gana punto A" onClick={onClickHandlerA}/>
       <Boton texto="Gana punto B" onClick={onClickHandlerB}/>
       <Boton texto="Reiniciar" onClick={onClickHandlerReiniciar}/>
