@@ -15,6 +15,19 @@ function App() {
   const [setsA, setSetsA] = useState(0);
   const [setsB, setSetsB] = useState(0);
 
+  //Calcular sets
+  if(puntosA >= 21 && puntosA >= puntosB + 2){
+    setSetsA(setsA + 1);
+    setPuntosA(0);
+    setPuntosB(0);
+  }
+
+  if(puntosB >= 21 && puntosB >= puntosA + 2){
+    setSetsB(setsB + 1);
+    setPuntosA(0);
+    setPuntosB(0);
+  }
+
   //console.log("Puntos A dentro de App: ", puntosA);
 
   //Handler para el onClick de los botones
