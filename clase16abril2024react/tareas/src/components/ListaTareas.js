@@ -13,13 +13,14 @@ const ListaTareas = ({ props }) => {
   ]);
 
   //Función que compelta una tarea
-  const completaTarea = (id) => {
-    arrTareas.map((tarea) => {
+  const completarTarea = (id) => {
+    const arrTareasNuevo = arrTareas.map((tarea) => {
       if (tarea.id === id) {
         tarea.completada = !tarea.completada;
       }
       return tarea;
     });
+    setArrTareas(arrTareasNuevo);
   };
 
   const eliminarTarea = (id) => {
@@ -40,7 +41,7 @@ const ListaTareas = ({ props }) => {
         arrTareas.map((tarea) => {
           return( <Tarea descripcion={tarea.descripcion}
             tarea={tarea}
-            completaTarea={completaTarea}
+            completarTarea={completarTarea}
             eliminarTarea={eliminarTarea}
             key={tarea.id}   
           />);
