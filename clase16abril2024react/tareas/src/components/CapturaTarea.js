@@ -1,36 +1,50 @@
-//Una forma para capturar una nueva tarea
-// Autor: Diego Sánchez Valle
-
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import "../styles/capturaTarea.css";
-import {v4 as uuidv4} from "uuid";
+import { v4 as uuidv4 } from "uuid";
 
 const CapturaTarea = (props) => {
-    const refDescripcion = useRef();
-    const hideButtonRefs = useRef();
+  const refDescripcion = useRef();
+  const [visible, setVisible] = useState(true);
 
-    //funcion para agregar un nueva tarea
-    const agregarNuevaTarea = (evento) => {
-        evento.preventDefault();
-        const nuevaTarea = { descripcion: refDescripcion.current.value,
-        id: uuidv4(),
-        completada: false
-        };
-        props.onSubmit(nuevaTarea);
-        console.log("Agrega nueva tarea: ", refDescripcion.current.value);
+  const handleHideButton = () => {
+    setVisible(!visible);
+    console.log("Botón cancelar");
+  };
+
+  const agregarNuevaTarea = (evento) => {
+    evento.preventDefault();
+    const nuevaTarea = {
+      descripcion: refDescripcion.current.value,
+      id: uuidv4(),
+      completada: false,
     };
-    return (
-        <div className="tarea-forma">
+    props.onSubmit(nuevaTarea);
+    console.log("Agrega nueva tarea: ", refDescripcion.current.value);
+  };
+
+  return (
+    <div className="tarea-forma">
+      {visible && (
         <form className="tarea-forma" onSubmit={agregarNuevaTarea}>
-            <label htmlFor="descripcion">Descripción de la tarea</label>
-            <input className="tarea-input" type="text" placeholder="Escribe la descripción de la tarea" name="descripcion" id="descripcion"
+          <label htmlFor="descripcion">Descripción de la tarea</label>
+          <input
+            className="tarea-input"
+            type="text"
+            placeholder="Escribe la descripción de la tarea"
+            name="descripcion"
+            id="descripcion"
             ref={refDescripcion}
-            />
-            <button className="tarea-boton" type="submit">Agregar tarea</button>
+          />
+          <button className="tarea-boton" type="submit">
+            Agregar tarea
+          </button>
         </form>
-        <button className="tarea-boton" type="submit">Cancelar</button>
-        </div>
-    );
+      )}
+      <button className="tarea-boton" type="submit" onClick={handleHideButton}>
+        Cancelar
+      </button>
+    </div>
+  );
 };
 
 export default CapturaTarea;
