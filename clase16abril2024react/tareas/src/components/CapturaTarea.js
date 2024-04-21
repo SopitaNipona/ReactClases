@@ -7,6 +7,7 @@ import {v4 as uuidv4} from "uuid";
 
 const CapturaTarea = (props) => {
     const refDescripcion = useRef();
+    const hideButtonRefs = useRef();
 
     //funcion para agregar un nueva tarea
     const agregarNuevaTarea = (evento) => {
@@ -19,6 +20,7 @@ const CapturaTarea = (props) => {
         console.log("Agrega nueva tarea: ", refDescripcion.current.value);
     };
     return (
+        <div className="tarea-forma">
         <form className="tarea-forma" onSubmit={agregarNuevaTarea}>
             <label htmlFor="descripcion">Descripción de la tarea</label>
             <input className="tarea-input" type="text" placeholder="Escribe la descripción de la tarea" name="descripcion" id="descripcion"
@@ -26,6 +28,8 @@ const CapturaTarea = (props) => {
             />
             <button className="tarea-boton" type="submit">Agregar tarea</button>
         </form>
+        <button className="tarea-boton" type="submit">Cancelar</button>
+        </div>
     );
 };
 
