@@ -37,19 +37,20 @@ function App() {
     setCountMultiplierB(0);
   }
 
-  if(setsB >= 6 || setsA >= 6){
-    if(setsA >= setsB + 2){
-      console.log("Ganador A");
+  if(setsB >= 5 || setsA >= 5){
+    if(setsA > setsB){
+        console.log("Ganador A");
+        alert("Jugador A ha ganado la partida");
     }
-    if(setsB >= setsA + 2){
-      console.log("Ganador B");
+    if(setsB > setsA){
+        console.log("Ganador B");
+        alert("Jugador B ha ganado la partida");
     }
     setSetsA(0);
     setSetsB(0);
-
     setCountMultiplierA(0);
     setCountMultiplierB(0);
-  }
+}
 
   //console.log("Puntos A dentro de App: ", puntosA);
 
@@ -89,7 +90,7 @@ function App() {
     setSetsA(0);
     setSetsB(0);
     setCountMultiplierA(0);
-    setCountMultiplierB(0);
+    setCountMultiplierB(0);  
   }
 
   return (
