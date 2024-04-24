@@ -19,6 +19,9 @@ function App() {
   
   const [countMultiplierA, setCountMultiplierA] = useState(0);
   const [countMultiplierB, setCountMultiplierB] = useState(0);
+  
+  //const [showAlertA, setShowAlertA] = useState(false);
+  //const [showAlertB, setShowAlertB] = useState(false);
 
   //Calcular sets
   if(puntosA >= 41 ){
