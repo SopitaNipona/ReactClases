@@ -42,11 +42,9 @@ function App() {
 
   if(setsB >= 5 || setsA >= 5){
     if(setsA > setsB){
-        console.log("Ganador A");
         alert("Jugador A ha ganado la partida");
     }
     if(setsB > setsA){
-        console.log("Ganador B");
         alert("Jugador B ha ganado la partida");
     }
     setSetsA(0);
