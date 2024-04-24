@@ -18,8 +18,14 @@ const CapturaTarea = (props) => {
       id: uuidv4(),
       completada: false,
     };
+    arrTareas.push(nuevaTarea);
     props.onSubmit(nuevaTarea);
     console.log("Agrega nueva tarea: ", refDescripcion.current.value);
+  };
+
+  const cambiaDescripcion = () => {
+    setDescripcion(evento.target.value);
+    console.log(descripcion);
   };
 
   return (
@@ -33,7 +39,7 @@ const CapturaTarea = (props) => {
             placeholder="Escribe la descripción de la tarea"
             name="descripcion"
             id="descripcion"
-            ref={refDescripcion}
+            onChange={cambiaDescripcion}
           />
           <button className="tarea-boton" type="submit">
             Agregar tarea

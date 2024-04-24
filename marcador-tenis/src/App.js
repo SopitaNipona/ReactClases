@@ -15,42 +15,72 @@ function App() {
   const [setsA, setSetsA] = useState(0);
   const [setsB, setSetsB] = useState(0);
 
+  const pointsMultiplier = [15,15,10,10];
+  
+  const [countMultiplierA, setCountMultiplierA] = useState(0);
+  const [countMultiplierB, setCountMultiplierB] = useState(0);
+
   //Calcular sets
-  if(puntosA >= 21 && puntosA >= puntosB + 2){
+  if(puntosA >= 41 ){
     setSetsA(setsA + 1);
     setPuntosA(0);
     setPuntosB(0);
+    setCountMultiplierA(0);
+    setCountMultiplierB(0);
   }
 
-  if(puntosB >= 21 && puntosB >= puntosA + 2){
+  if(puntosB >= 41 ){
     setSetsB(setsB + 1);
     setPuntosA(0);
     setPuntosB(0);
+    setCountMultiplierA(0);
+    setCountMultiplierB(0);
+  }
+
+  if(setsB >= 6 || setsA >= 6){
+    if(setsA >= setsB + 2){
+      console.log("Ganador A");
+    }
+    if(setsB >= setsA + 2){
+      console.log("Ganador B");
+    }
+    setSetsA(0);
+    setSetsB(0);
+
+    setCountMultiplierA(0);
+    setCountMultiplierB(0);
   }
 
   //console.log("Puntos A dentro de App: ", puntosA);
 
   //Handler para el onClick de los botones
   const onClickHandlerA = () => {
-    //console.log("Antes: ", puntosA);
-    setPuntosA(puntosA + 1);
+    console.log("multiplier: ",countMultiplierA);
+    setPuntosA(puntosA + pointsMultiplier[countMultiplierA]);
     //console.log("Despues: ", puntosB) //Asincronos
+    setCountMultiplierA(countMultiplierA + 1);
+    console.log("After: ",countMultiplierA);
   }
 
   const onClickHandlerAmenos = () => {
     if(puntosA > 0){
-      setPuntosA(puntosA - 1);
+      setPuntosA(puntosA - pointsMultiplier[countMultiplierA]);
+      setCountMultiplierA(countMultiplierA - 1);
     }
   }
 
   const onClickHandlerB = () => {
-    setPuntosB(puntosB + 1);
+    setPuntosB(puntosB + pointsMultiplier[countMultiplierB]);
+    setCountMultiplierB(countMultiplierB + 1);
   }
 
   const onClickHandlerBmenos = () => {
     if(puntosB > 0){
-      setPuntosB(puntosB - 1);
+      setPuntosB(puntosB - pointsMultiplier[countMultiplierB]);
+      setCountMultiplierB(countMultiplierB - 1);
+
     }
+    
   }
 
   const onClickHandlerReiniciar = () => {
@@ -58,6 +88,8 @@ function App() {
     setPuntosB(0);
     setSetsA(0);
     setSetsB(0);
+    setCountMultiplierA(0);
+    setCountMultiplierB(0);
   }
 
   return (
