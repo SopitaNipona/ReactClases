@@ -8,6 +8,15 @@
   color: white;
 }
 
+#light{
+  background-color: white;
+
+}
+
+#dark{
+  background-color: black;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
