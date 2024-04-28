@@ -1,5 +1,5 @@
 .lista-tareas {
-    background: lightgray;
+    
     padding: 10px 40px ;
     border-radius: 10px;
     min-height: 500px;
@@ -14,4 +14,13 @@
     border: 2px solid gray;
     border-radius: 5px;
     color: white;
+}
+
+
+#black .lista-tareas{
+    background: black;
+}
+
+#light .lista-tareas{
+    background: lightgray;
 }

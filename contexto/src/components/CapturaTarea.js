@@ -39,6 +39,9 @@ const CapturaTarea = (props) => {
             <button className="tarea-boton" type="submit">
                 Agregar tarea
             </button>
+            <button className="tarea-boton" type="submit">
+                Cambiar color
+            </button>
         </form>
     );
 };
