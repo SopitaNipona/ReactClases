@@ -2,11 +2,16 @@
 import "../styles/capturaTarea.css";
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from "react";
+//import { ThemeContext } from "../App";
+//import {ReactSwitch} from "react-switch";
+//import {toggleTheme} from "../App";
 
 
 const CapturaTarea = (props) => {
 
     const [descripcion, setDescripcion] = useState('');
+    
+
 
     //función para agregar una tarea
     const agregarNuevaTarea = (evento) => {
@@ -26,6 +31,7 @@ const CapturaTarea = (props) => {
     };
 
     return (
+        
         <form className="tarea-forma" onSubmit={agregarNuevaTarea}>
             <label htmlFor="tarea-label"> Nueva tarea: </label>
             <input
@@ -39,10 +45,8 @@ const CapturaTarea = (props) => {
             <button className="tarea-boton" type="submit">
                 Agregar tarea
             </button>
-            <button className="tarea-boton" type="submit">
-                Cambiar color
-            </button>
         </form>
+        
     );
 };
 

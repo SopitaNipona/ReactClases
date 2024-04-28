@@ -18,6 +18,7 @@ function App() {
     <div className="App" id={theme}>
       <ProveedorTarea value={{theme, toggleTheme}}>
         <ListaTareas />
+        <button onClick={toggleTheme}>Cambiar tema</button>
       </ProveedorTarea>  
     </div>
     </ThemeContext.Provider>
