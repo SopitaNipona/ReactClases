@@ -1,6 +1,6 @@
 //Proveedor de arrtareas y sus operaciones,usa un contexto para pasar el estado y las funciones a los componentes hijos
 import { createContext } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const ContextoTareas = createContext();
 
@@ -8,6 +8,27 @@ const ProveedorTarea= ({children}) => {
     
     //Datos
     const [arrTareas, setArrTareas] = useState([]);
+
+    useEffect(() => {
+        fetch('https://jsonplaceholder.typicode.com/todos')
+          .then(res => {
+            return res.json();
+          })
+          .then((data) => {
+            console.log(data);
+            const formatoInterno = data.map(tarea => ({
+            
+                id: tarea.id,
+                descripcion: tarea.title,
+                completada: tarea.completed
+              
+            }));
+            setArrTareas(formatoInterno);
+          })
+          .catch(error => {
+            console.log(error);
+          });
+      }, []);
 
     //Función para agregar una tarea
     const agregarNuevaTarea = (tareaNueva) => {
