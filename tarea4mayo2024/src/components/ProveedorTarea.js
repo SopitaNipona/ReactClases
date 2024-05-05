@@ -8,6 +8,7 @@ const ProveedorTarea= ({children}) => {
     
     //Datos
     const [arrTareas, setArrTareas] = useState([]);
+    const [filter, setFilter] = useState('todas');
 
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/todos')
@@ -28,8 +29,19 @@ const ProveedorTarea= ({children}) => {
           .catch(error => {
             console.log(error);
           });
-      }, []);
+    }, []);
 
+    const filtroTareas = () => {
+        switch (filter) {
+            case 'completadas':
+                return arrTareas.filter(tarea => tarea.completada);
+            case 'pendientes':
+                return arrTareas.filter(tarea => !tarea.completada);
+            default:
+                return arrTareas;
+        }
+    };
+    
     //Función para agregar una tarea
     const agregarNuevaTarea = (tareaNueva) => {
         //arrTareas.push(tarea); nO SE PUEDE MODIFICAR A MANO

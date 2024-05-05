@@ -13,6 +13,9 @@ const ListaTareas = (props) => {
     return (
 
             <div className="lista-tareas">
+                <button onClick={() => {setFilter('completadas')}}>Completadas</button>
+                <button onClick={() => {setFilter('pendientes')}}>Pendientes</button>
+                <button onClick={() => {setFilter('todas')}}>Todas</button>
                 <CapturaTarea onSubmit={agregarNuevaTarea} />
                 {arrTareas.length !== 0 ? (
                     arrTareas.map((tarea) => {
