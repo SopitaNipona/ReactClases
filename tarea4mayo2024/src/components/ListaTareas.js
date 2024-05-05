@@ -8,7 +8,7 @@ import { ContextoTareas } from "./ProveedorTarea";
 
 const ListaTareas = (props) => {
 
-    const [arrTareas, setArrTareas, agregarNuevaTarea, completarTarea, eliminarTarea] = useContext(ContextoTareas);
+    const [arrTareas, setFilter, setArrTareas, agregarNuevaTarea, completarTarea, eliminarTarea] = useContext(ContextoTareas);
 
     return (
 

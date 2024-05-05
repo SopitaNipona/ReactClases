@@ -31,7 +31,7 @@ const ProveedorTarea= ({children}) => {
           });
     }, []);
 
-    const filtroTareas = () => {
+    const tareasFiltradas = () => {
         switch (filter) {
             case 'completadas':
                 return arrTareas.filter(tarea => tarea.completada);
