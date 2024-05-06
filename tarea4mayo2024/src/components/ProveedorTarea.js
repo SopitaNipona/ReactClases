@@ -4,10 +4,11 @@ import { useState, useEffect } from "react";
 
 export const ContextoTareas = createContext();
 
-const ProveedorTarea= ({children}) => {    
+const ProveedorTarea= ({children,filter}) => {    
     
     //Datos
     const [arrTareas, setArrTareas] = useState([]);
+    
 
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/todos')
@@ -29,6 +30,17 @@ const ProveedorTarea= ({children}) => {
             console.log(error);
           });
     }, []);
+
+    const tareasFiltradas = () => {
+        switch (filter) {
+            case 'completed':
+                return arrTareas.filter(tarea => tarea.completada);
+            case 'pending':
+                return arrTareas.filter(tarea => !tarea.completada);
+            default:
+                return arrTareas;
+                }
+            }
 
     //Función para agregar una tarea
     const agregarNuevaTarea = (tareaNueva) => {
